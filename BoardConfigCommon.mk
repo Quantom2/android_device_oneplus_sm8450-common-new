@@ -129,6 +129,7 @@ TARGET_KERNEL_EXT_MODULES += \
     oplus/kernel/touchpanel/oplus_touchscreen_v2:kbuild \
     oplus/secure/biometrics/fingerprints/bsp/uff/driver:kbuild \
     oplus/secure/common/bsp/drivers/oplus_secure_common \
+    oplus/sensor/kernel/oplus_consumer_ir:kbuild \
     oplus/sensor/kernel/qcom/sensor:kbuild
 
 # Platform
