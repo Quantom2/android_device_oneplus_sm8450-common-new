@@ -56,7 +56,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.AGMIPC@1.0-service
 
 AUDIO_HAL_DIR := hardware/qcom-caf/sm8450/audio/primary-hal
-QCV_FAMILY_SKUS := taro cape
+QCV_FAMILY_SKUS := taro cape ukee
 
 PRODUCT_COPY_FILES += \
 $(foreach DEVICE_SKU, $(QCV_FAMILY_SKUS), \
