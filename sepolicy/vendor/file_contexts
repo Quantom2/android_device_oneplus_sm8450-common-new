@@ -1,0 +1,4 @@
+# Vibrator
+/vendor/bin/hw/android\.hardware\.vibrator\.service\.legacy\.oplus-richtap    u:object_r:hal_vibrator_default_exec:s0
+
+
