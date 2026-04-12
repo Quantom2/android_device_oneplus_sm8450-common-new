@@ -448,7 +448,7 @@ system_ext/etc/horae/horae_SM8475.conf
 
 # Horae - from dodge 11.F.80
 system/lib64/libostatslog.so:system_ext/lib64/libostatslog.so|e139f1bc789107f2fb51bf3f3e87d4bf25f7314b
-system_ext/bin/horae|ea9d9dcad6e8c13f732bbc6990da981682b87854
+system_ext/bin/horae|ea9d9dcad6e8c13f732bbc6990da981682b87854|394925f9a874f9f88f19c2f3511f188ea79191c7
 system_ext/etc/init/horae.rc|fc8b2a0becf5d9cec527df7c6974ff77de80f3a2
 
 # IMS (system)
@@ -762,7 +762,7 @@ system_ext/lib64/libqccdme.so|c05eb3ae79142a0d7bef3664028560a257872c8d
 system_ext/lib64/libqccfileservice.so|8f46735705105dcd1237f45e311378512a844b4e
 system_ext/lib64/vendor.qti.hardware.qccsyshal@1.0.so|196bce8c481180705cc04074af4fd8362f15f6d9
 system_ext/lib64/vendor.qti.hardware.qccsyshal@1.1.so|cb060471bccda79a173bd26f58aea0e7162d65eb
-system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so|9663f4512a1e33956a9a348ac19b139ddfe02ee6
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so|9663f4512a1e33956a9a348ac19b139ddfe02ee6|f4852b7274b4dad270b10c0114af6c5fc8a85be8
 system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2.so|db1ea124c0f42fcc1a814d69308d4f9522012e1b
 system_ext/lib64/vendor.qti.hardware.qccvndhal@1.0.so|15a47e8d6f3746e3cb3baa91577f206a1089edd5
 system_ext/lib64/vendor.qti.qccvndhal_aidl-V1-ndk.so|ffccfde321f48e390c5af8d546e1c7cdf23f9152
@@ -1100,8 +1100,8 @@ vendor/etc/init/init.time_daemon.rc
 vendor/lib64/libtime_genoff.so
 
 # Touch - from dodge 11.F.80
-odm/bin/hw/vendor-oplus-hardware-touch-V2-service|87cad8a76386446100bec20e91d62b4e0cc17f9d
-odm/bin/touchDaemon|4f726568021559a9df10aff717324255b8907df0
+odm/bin/hw/vendor-oplus-hardware-touch-V2-service|87cad8a76386446100bec20e91d62b4e0cc17f9d|f83faf3320af85580784567fa3f530e3803612bb
+odm/bin/touchDaemon|4f726568021559a9df10aff717324255b8907df0|ee2358f06d504b7a8c19aacd54a8208f5c1429a5
 odm/etc/init/init.touchDaemon.rc|ddee903c9d324c0a74cbde2b1a669c1d715a8ea2
 odm/etc/init/vendor-oplus-hardware-touch-V2-service.rc|4f5aeae41c029835e747efa365f65466ed53e595
 odm/etc/vintf/manifest/manifest_touch_aidl.xml|533fa17a03339bb0ddb42029e20fd9b20e530101
@@ -1195,7 +1195,7 @@ system_ext/lib64/libwfddisplayconfig.so|6d5ed77a65d765e48a23f3519c6c7a5005945086
 system_ext/lib64/libwfdmminterface.so|cc61087a298aff53c32832cac5256606e202ce29
 system_ext/lib64/libwfdmmsink.so|122c1e66fc0e922dadb138be865c07dc2a28cd63
 system_ext/lib64/libwfdmmsrc_system.so|9910d4c2d3b8bdbdaebcaca8c601be3e6746112d
-system_ext/lib64/libwfdnative.so;SYMLINK=system_ext/priv-app/WfdService/lib/arm64/libwfdnative.so|7f2224113621023ac3157ab3ec894e10383c6f18
+system_ext/lib64/libwfdnative.so;SYMLINK=system_ext/priv-app/WfdService/lib/arm64/libwfdnative.so|7f2224113621023ac3157ab3ec894e10383c6f18|8a44fbefd6266ce60d9bf3888a36f8c6cad0a713
 system_ext/lib64/libwfdrtsp.so|337d830acb59644c91a84dea4a5e5e2e33b8242d
 system_ext/lib64/libwfdservice.so|27dddd3ba79fef78b9cfa50b624a26e452356eb4
 system_ext/lib64/libwfdsinksm.so|0ad7086e7231b43db55bed59a44bd9dab5385b51
