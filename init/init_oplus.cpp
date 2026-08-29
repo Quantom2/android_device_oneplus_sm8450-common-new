@@ -67,6 +67,21 @@ void vendor_load_properties() {
         case 21842:  // IN / EEA / NA - 10T
             load_props(region - 1);
             break;
+        // senna
+        case 22623: // SE version
+            load_props(5);
+            OverrideProperty("ro.product.senna.battery", "se");
+            break;
+        case 22624: // 150w
+            load_props(6);
+            OverrideProperty("ro.product.senna.battery", "big");
+            break;
+        case 22625: // 240w
+            load_props(7);
+            break;
+        case 226: // 226B2, Global 240w. "B2" will be stripped by stoi
+            load_props(8);
+            break;
         default:
             LOG(ERROR) << "Unexpected project name: " << prjname;
     }

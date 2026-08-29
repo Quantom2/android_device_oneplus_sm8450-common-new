@@ -10,7 +10,7 @@ constexpr const char* RO_PROP_SOURCES[] = {
 };
 
 constexpr const char* MODELS[] = {
-        "CPH2413", "CPH2415", "CPH2417", "CPH2419", "PGP110",
+        "CPH2413", "CPH2415", "CPH2417", "CPH2419", "PGP110", "RMX3700", "RMX3706", "RMX3708", "RMX3709"
 };
 
 // TO-DO make a map
@@ -25,4 +25,8 @@ constexpr const char* BUILD_FINGERPRINT[] = {
         "OnePlus/CPH2417/OP5552L1:15/AP3A.240617.008/S.1dff9a8_1cc71-144ca:user/release-keys",
         "OnePlus/CPH2419/OP5552L1:13/SKQ1.221119.001/S.123ec2a_6b801_6ff30:user/release-keys",
         "OnePlus/PGP110/OP5551L1:14/UP1A.230620.001/S.1317e36_a82b-2:user/release-keys",
+        "realme/RMX3700/RE585F:15/AP3A.240617.008/T.1ea8b15-1_aa96:user/release-keys",
+        "realme/RMX3706/RE5860:15/AP3A.240617.008/T.1ea8af4_aab6_aab5:user/release-keys",
+        "realme/RMX3708/RE5860:15/AP3A.240617.008/T.1ea8af4_aab6_aab5:user/release-keys",
+        "realme/RMX3709TR/REE2B2L1:15/AP3A.240617.008/T.1ea8b0c_aa9e_aa9d:user/release-keys",
 };
