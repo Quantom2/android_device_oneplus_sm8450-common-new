@@ -245,3 +245,4 @@ msm-eva.ko
 msm-mmrm.ko
 msm_video.ko
 qca_cld3_qca6490.ko
+sdhci-msm.ko
