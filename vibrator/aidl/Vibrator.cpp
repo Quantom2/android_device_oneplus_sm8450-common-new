@@ -10,13 +10,22 @@
 #include <log/log.h>
 
 #include <thread>
-#include <cmath>
 
 #include "aac_vibra_function.h"
 
-#define RICHTAP_LIGHT_STRENGTH 66
-#define RICHTAP_MEDIUM_STRENGTH 84
-#define RICHTAP_STRONG_STRENGTH 104
+#define RICHTAP_LIGHT_STRENGTH 64
+#define RICHTAP_MEDIUM_STRENGTH 86
+#define RICHTAP_STRONG_STRENGTH 124
+
+enum vibrationMode {
+    MODE_NONE,
+    MODE_TIMEOUT,
+    MODE_PREBAKED,
+    MODE_STREAM,
+};
+
+static vibrationMode sLastMode = MODE_NONE;
+
 
 namespace aidl {
 namespace android {
@@ -45,7 +54,12 @@ ndk::ScopedAStatus Vibrator::getCapabilities(int32_t* _aidl_return) {
 }
 
 ndk::ScopedAStatus Vibrator::off() {
-    int32_t ret = aac_vibra_off();
+    bool ret = aac_vibra_looper_stopPerformHe();
+
+    if (ret)
+        ALOGI("No HE effects to stop!");
+
+    ret = aac_vibra_off();
     if (ret) {
         ALOGE("AAC off failed: %d\n", ret);
         return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_SERVICE_SPECIFIC));
@@ -69,6 +83,7 @@ ndk::ScopedAStatus Vibrator::on(int32_t timeoutMs,
         }).detach();
     }
 
+    sLastMode = MODE_TIMEOUT;
     return ndk::ScopedAStatus::ok();
 }
 
@@ -93,6 +108,7 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
                                      const std::shared_ptr<IVibratorCallback>& callback,
                                      int32_t* _aidl_return) {
     int32_t strength;
+    uint64_t prebackThreadToken = ++mPrebackCallbackToken;
     if (effect < Effect::CLICK || effect > Effect::HEAVY_CLICK)
         return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
 
@@ -119,8 +135,7 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
     ALOGD("Performing effect_id=0x%x (mapped from %d), strength=%d",
           mappedEffect.value(), static_cast<int>(effect), strength);
     
-    aac_vibra_looper_stopPerformHe(); // try to solve overstacking
-    aac_vibra_setAmplitude(strength + 24); // Reset amplitude always
+    aac_vibra_setAmplitude(strength + 40); // Reset amplitude always
     
     int32_t ret = aac_vibra_looper_prebaked_effect(mappedEffect.value(), strength);
 
@@ -130,14 +145,16 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
     }
 
     if (callback != nullptr) {
-        std::thread([=] {
-            usleep(ret * 1000);
-            callback->onComplete();
+        std::thread([this, ret, prebackThreadToken, callback] {
+            usleep((ret + 5) * 1000);
+            if (mPrebackCallbackToken.load() == prebackThreadToken) 
+                callback->onComplete();
         }).detach();
     }
 
     *_aidl_return = ret;
 
+    sLastMode = MODE_PREBAKED;
     return ndk::ScopedAStatus::ok();
 }
 
@@ -155,6 +172,7 @@ ndk::ScopedAStatus Vibrator::setAmplitude(float amplitude) {
         return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_SERVICE_SPECIFIC));
     }
 
+    sLastMode = MODE_STREAM;
     return ndk::ScopedAStatus::ok();
 }
 

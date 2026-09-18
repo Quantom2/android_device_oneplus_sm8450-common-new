@@ -44,6 +44,8 @@ class Vibrator : public BnVibrator {
     ndk::ScopedAStatus getSupportedBraking(std::vector<Braking>* supported) override;
     ndk::ScopedAStatus composePwle(const std::vector<PrimitivePwle>& composite,
                                    const std::shared_ptr<IVibratorCallback>& callback) override;
+  private:
+    std::atomic<uint64_t> mPrebackCallbackToken{0};
 };
 
 }  // namespace vibrator
