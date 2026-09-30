@@ -1,0 +1,21 @@
+#
+# Copyright (C) 2025 The LineageOS Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# Realme GT neo5SE
+on fs && property:ro.boot.prjname=22623
+    mount overlay overlay /odm/firmware/fastchg lowerdir=/odm/22623/odm/firmware/fastchg:/odm/firmware/fastchg
+
+# Realme GT neo5
+on fs && property:ro.boot.prjname=22624
+    mount overlay overlay /odm/firmware/fastchg lowerdir=/odm/22624/odm/firmware/fastchg:/odm/firmware/fastchg
+
+# Realme GT neo5 (240W)
+on fs && property:ro.boot.prjname=22625
+    mount overlay overlay /odm/firmware/fastchg lowerdir=/odm/22625/odm/firmware/fastchg:/odm/firmware/fastchg
+
+# Realme GT3 (240W)
+on fs && property:ro.boot.prjname=226B2
+    mount overlay overlay /odm/firmware/fastchg lowerdir=/odm/226B2/odm/firmware/fastchg:/odm/firmware/fastchg
