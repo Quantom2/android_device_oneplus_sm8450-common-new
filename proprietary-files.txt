@@ -643,14 +643,6 @@ vendor/lib64/libvideotxr.so
 # Native public libraries
 vendor/etc/public.libraries.txt
 
-# Neural networks
-odm/lib64/QNN_lib/libQnnHtp.so
-odm/lib64/QNN_lib/libQnnHtpPrepare.so
-odm/lib64/QNN_lib/libQnnHtpV69Stub.so
-odm/lib64/aiboost/libQnnHtp.so;MODULE_SUFFIX=.aiboost
-odm/lib64/aiboost/libQnnHtpPrepare.so;MODULE_SUFFIX=.aiboost
-odm/lib64/aiboost/libQnnHtpV69Stub.so;MODULE_SUFFIX=.aiboost
-
 # NFC
 odm/etc/nfc/libnfc-mtp-SN100.conf_22881:vendor/etc/libnfc-nxp.conf
 odm/etc/nfc/libnfc-nci.conf_22881:vendor/etc/libnfc-nci.conf
