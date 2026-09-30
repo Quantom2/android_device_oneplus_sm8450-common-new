@@ -643,6 +643,14 @@ vendor/lib64/libqcodec2_v4l2codec.so
 vendor/lib64/libqconfigclient.so
 vendor/lib64/libvideotxr.so
 
+# Face unlock
+odm/bin/hw/vendor.oplus.hardware.biometrics.face@1.0-service
+odm/etc/init/vendor.oplus.hardware.biometrics.face@1.0-service.rc
+odm/etc/vintf/manifest/manifest_oplus_face.xml
+odm/lib64/libstfaceunlockocl.so;DUMMY_SHARED_LIB
+odm/init.oplus.face.rc
+vendor/lib64/libcamera2ndk_vendor.so
+
 # Native public libraries
 vendor/etc/public.libraries.txt
 
